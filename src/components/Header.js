@@ -14,13 +14,13 @@ export default Header;
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height: 80,
+    height: 120,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.primary,
   },
-  headerTitle:{
-    fontFamily:"karla-regular",
-    fontSize:20
-  }
+  headerTitle: {
+    fontFamily: "karla-regular",
+    fontSize: 20,
+  },
 });

@@ -4,9 +4,10 @@ import Header from "../components/Header";
 import categoriesData from "../data/categories_data.js";
 import CategoryItem from "../components/CategoryItem.js";
 
-console.log(categoriesData);
-const Categories = () => {
-  const renderCategoryItem = ({ item }) => <CategoryItem category={item} />;
+const Categories = ({ navigation }) => {
+  const renderCategoryItem = ({ item }) => (
+    <CategoryItem navigation={navigation} category={item} />
+  );
 
   return (
     <View>

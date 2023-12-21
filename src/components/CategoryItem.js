@@ -2,13 +2,15 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import Card from "./Card";
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category, navigation }) => {
   return (
-<TouchableOpacity onPress={null}>
-<Card style={styles.card}>
-      <Text styles={styles.text}>{category}</Text>
-    </Card>
-</TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("Productos", { category })}
+    >
+      <Card style={styles.card}>
+        <Text styles={styles.text}>{category}</Text>
+      </Card>
+    </TouchableOpacity>
   );
 };
 

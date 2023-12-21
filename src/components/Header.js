@@ -19,4 +19,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.primary,
   },
+  headerTitle:{
+    fontFamily:"karla-regular",
+    fontSize:20
+  }
 });

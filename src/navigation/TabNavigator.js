@@ -3,9 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import ShopNavigator from "./ShopNavigator";
 import CartNavigator from "./CartNavigator";
 import { StyleSheet } from "react-native";
-import { Entypo, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Entypo, MaterialCommunityIcons, AntDesign  } from "@expo/vector-icons";
 import OrdersNavigator from "./OrdersNavigator";
 import { Ionicons } from "@expo/vector-icons";
+import HomeNavigator from "./HomeNavigator";
 
 const tab = createBottomTabNavigator();
 
@@ -19,6 +20,15 @@ const TabNavigator = () => {
           tabBarStyle: styles.tabBar,
         }}
       >
+            <tab.Screen
+          name="HomeStack"
+          component={HomeNavigator}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <AntDesign name="home" size={30} color="#fff" />
+            ),
+          }}
+        />
         <tab.Screen
           name="ShopStack"
           component={ShopNavigator}
@@ -48,6 +58,7 @@ const TabNavigator = () => {
             ),
           }}
         />
+     
       </tab.Navigator>
     </NavigationContainer>
   );

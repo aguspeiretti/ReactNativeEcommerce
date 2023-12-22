@@ -23,12 +23,12 @@ const ProductsByCategory = ({ navigation, route }) => {
   }, [category, search]);
 
   const renderProductItem = ({ item }) => (
-    <ProductItem onSelectProductIdEvent={navigation} product={item} />
+    <ProductItem navigation={navigation} product={item} />
   );
 
   return (
     <>
-      <Header title={"productos"} />
+      {/* <Header title={"productos"} /> */}
       <Search onSearch={setSearch} />
       <FlatList
         data={productByCategory}

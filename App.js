@@ -1,15 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-import Categories from "./src/screens/Categories";
+import { ActivityIndicator, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
-import ProductsByCategory from "./src/screens/ProductsByCategory";
-import { useState } from "react";
-import ProductsDetailScreen from "./src/screens/ProductsDetailScreen";
-import Navigator from "./src/navigation/navigator";
+import TabNavigator from "./src/navigation/TabNavigator";
+import { Provider } from "react-redux";
+import store from "./src/store/Index";
+
 export default function App() {
-  const [categorySelected, setCategorySelected] = useState("");
-  const [productIdSelected, setProductIdSelected] = useState("");
-  console.log(categorySelected);
   const [fontLoaded] = useFonts({
     "karla-regular": require("./assets/fonts/Karla-Regular.ttf"),
   });
@@ -18,26 +13,13 @@ export default function App() {
     return <ActivityIndicator />;
   }
 
-  const onSelectCategory = (category) => {
-    setCategorySelected(category);
-  };
-
-  const onSelectProductId = (productId) => {
-    setProductIdSelected(productId);
-  };
-
   return (
     <>
-      <Navigator />
+      <Provider store={store}>
+        <TabNavigator />
+      </Provider>
     </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});

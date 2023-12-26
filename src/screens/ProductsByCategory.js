@@ -13,8 +13,10 @@ const ProductsByCategory = ({ navigation, route }) => {
 
   // const { category } = route.params;
   // console.log(category);
-  const category = useSelector(state=>state.shopSlice.categorySelected)
-  const productFilter =  useSelector(state=>state.shopSlice.productFiltredByCategory)
+  const category = useSelector((state) => state.shopSlice.categorySelected);
+  const productFilter = useSelector(
+    (state) => state.shopSlice.productFiltredByCategory
+  );
 
   useEffect(() => {
     // const productFilter = productsData.filter(
@@ -33,7 +35,7 @@ const ProductsByCategory = ({ navigation, route }) => {
   return (
     <>
       {/* <Header title={"productos"} /> */}
-      <Search onSearch={setSearch} />
+
       <FlatList
         data={productByCategory}
         renderItem={renderProductItem}

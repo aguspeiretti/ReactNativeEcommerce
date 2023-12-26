@@ -1,4 +1,4 @@
-import { ActivityIndicator, StyleSheet } from "react-native";
+import { ActivityIndicator, SafeAreaView, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
 import TabNavigator from "./src/navigation/TabNavigator";
 import { Provider } from "react-redux";
@@ -15,11 +15,18 @@ export default function App() {
 
   return (
     <>
-      <Provider store={store}>
-        <TabNavigator />
-      </Provider>
+      <SafeAreaView style={styles.safe}>
+        <Provider store={store}>
+          <TabNavigator />
+        </Provider>
+      </SafeAreaView>
     </>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  safe: {
+    flex: 1,
+    paddingTop: 40,
+  },
+});

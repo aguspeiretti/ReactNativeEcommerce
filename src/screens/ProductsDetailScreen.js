@@ -15,9 +15,14 @@ import { colors } from "../global/color";
 const ProductsDetailScreen = ({ route }) => {
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const { productId } = route.params;
+
   const [isPortrait, setIsPortrait] = useState(true);
   const { height, width } = useWindowDimensions();
+
+  const productId = route.params;
+
+  console.log(productId);
+
   useEffect(() => {
     const productFound = products_data.find(
       (product) => product.id == productId
@@ -32,10 +37,10 @@ const ProductsDetailScreen = ({ route }) => {
       ) : (
         <View style={styles.container}>
           {/* <Header title={"Detalle del producto"} /> */}
-          <View>
+          <View style={{ backgroundColor: "#fff" }}>
             <Image
               source={{ uri: product.thumbnail }}
-              resizeMode="cover"
+              resizeMode="contain"
               style={
                 isPortrait ? styles.imageProduct : styles.imageProductLandscape
               }
@@ -43,7 +48,7 @@ const ProductsDetailScreen = ({ route }) => {
             <View style={styles.detailContainer}>
               <Text style={styles.title}>{product.title}</Text>
               <Text style={styles.description}>{product.description}</Text>
-              <Text style={styles.price}>{product.price}</Text>
+              <Text style={styles.price}>${product.price}</Text>
               <TouchableOpacity
                 style={isPortrait ? styles.buyButton : styles.buyAlt}
                 onPress={() => null}

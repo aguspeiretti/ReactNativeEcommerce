@@ -11,8 +11,6 @@ import { colors } from "../global/color";
 import { useState, useEffect } from "react";
 import cart_data from "../data/cart_data";
 
-console.log(cart_data);
-
 const CartScreen = () => {
   const [total, setTotal] = useState();
 

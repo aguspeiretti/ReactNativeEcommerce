@@ -3,10 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import ShopNavigator from "./ShopNavigator";
 import CartNavigator from "./CartNavigator";
 import { StyleSheet } from "react-native";
-import { Entypo, MaterialCommunityIcons, AntDesign  } from "@expo/vector-icons";
+import { Entypo, MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 import OrdersNavigator from "./OrdersNavigator";
 import { Ionicons } from "@expo/vector-icons";
 import HomeNavigator from "./HomeNavigator";
+import { colors } from "../global/color";
 
 const tab = createBottomTabNavigator();
 
@@ -20,7 +21,7 @@ const TabNavigator = () => {
           tabBarStyle: styles.tabBar,
         }}
       >
-            <tab.Screen
+        <tab.Screen
           name="HomeStack"
           component={HomeNavigator}
           options={{
@@ -58,7 +59,6 @@ const TabNavigator = () => {
             ),
           }}
         />
-     
       </tab.Navigator>
     </NavigationContainer>
   );
@@ -68,14 +68,9 @@ export default TabNavigator;
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: "#e29578",
+    backgroundColor: colors.primary,
     shadowColor: "#ccc",
-    elevation: 1,
-    position: "absolute",
-    left: 25,
-    right: 25,
-    bottom: 25,
+    elevation: 0,
     height: 80,
-    borderRadius: 20,
   },
 });

@@ -1,27 +1,29 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setProductIdSelected } from "../features/shopSlice";
 import { colors } from "../global/color";
-import CardItems from "./CardItems";
 
-const ProductItem = ({ product, navigation }) => {
-  const dispach = useDispatch();
-
+const CardItems = ({ product }) => {
   return (
-    <TouchableOpacity
-      onPress={() => {
-        dispach(setProductIdSelected(product.id)),
-          navigation.navigate("Detalle", product.id);
-      }}
-      style={styles.containerProductItem}
-    >
-      <CardItems product={product} />
-    </TouchableOpacity>
+    <View>
+      <View style={styles.cardNovedades}>
+        <View style={styles.ladoIzquierdo}>
+          <Image
+            style={styles.cardImage}
+            resizeMode="contain"
+            source={{ uri: product.thumbnail }}
+          />
+        </View>
+        <View style={styles.ladoDerecho}>
+          <Text style={styles.tituloCard}>{product.title}</Text>
+          <Text style={styles.descriptionCard}>{product.description}</Text>
+          <Text style={styles.priceCard}>${product.price}</Text>
+        </View>
+      </View>
+    </View>
   );
 };
 
-export default ProductItem;
+export default CardItems;
 
 const styles = StyleSheet.create({
   cardNovedades: {
